@@ -15,28 +15,24 @@ namespace CompetencePlus
         {
             InitializeComponent();
         }
-        private int hour;
+        private string hour;
 
-        public int Hour
+        public string Hour
         {
             get {
-                int h;
-                int.TryParse(textBox1.Text,out h);
-                return h;
+                return hour;
             }
             set {
                 textBox1.Text = value + "";
             }
         }
-        private int min;
+        private string min;
 
-        public int Min
+        public string Min
         {
             get
             {
-                int r;
-                int.TryParse(textBox2.Text, out r);
-                return r;
+                return min;
             }
             set
             {
@@ -44,11 +40,29 @@ namespace CompetencePlus
             }
            
         }
+        private string hm;
 
-        public void sethour(int hour,int min)
+        public string Hm
+        {
+            get
+            {
+
+                return textBox1.Text + ':' + textBox2.Text;
+
+            }
+            set
+            {
+                value  = textBox1.Text + ':' + textBox2.Text;
+            }
+
+        }
+      
+
+        public void sethour(string hour,string min,string hm)
         {
             this.hour = hour;
             this.min = min;
+            this.hm = hm;
         }
 
 
@@ -60,6 +74,11 @@ namespace CompetencePlus
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.OleDb;
 using CompetencePlus.Tools;
 
+
 namespace CompetencePlus.PackageEmploisTemps
 {
    public class EmploisTempDAO
@@ -12,13 +13,13 @@ namespace CompetencePlus.PackageEmploisTemps
 
         public void Add(EmploisTemp e)
         {
-            string Requete = "Insert into  EmploisTemps (dateDebut,dateFin,Anneformationid) values ('" + e.DateDebut + "','" + e.DateFin + "','" + e.Anneeformation + ")";
+            string Requete = "Insert into  EmploisTemps(dateDebut,dateFin,anneformation_id) values ('" + e.DateDebut + "','" + e.DateFin + "',"+e.Anneeformation.Id+")";
             MyConnection.ExecuteNonQuery(Requete);
         }
 
         public void Update(EmploisTemp e)
         {
-            string Requete = "Update  EmploisTemps set dateDebut='" + e.DateDebut + "',dateFin='" + e.DateFin + "',Anneformationid='"+e.Anneeformation+" where id="+e.Id;
+            string Requete = "Update  EmploisTemps set dateDebut='" + e.DateDebut + "',dateFin='" + e.DateFin + "',anneformation_id='"+e.Anneeformation.Titre+" where id="+e.Id;
             MyConnection.ExecuteNonQuery(Requete);
         }
 
@@ -39,7 +40,7 @@ namespace CompetencePlus.PackageEmploisTemps
                 f.Id = read.GetInt32(0);
                 f.DateDebut = read.GetDateTime(1);
                 f.DateFin = read.GetDateTime(2);
-             //   f.Anneeformation = read.GetDateTime(3);
+                f.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
                 ListEmploisTemp.Add(f);
             }
             MyConnection.Close();
@@ -55,8 +56,8 @@ namespace CompetencePlus.PackageEmploisTemps
             EmploisTemp f = new EmploisTemp();
             f.Id = read.GetInt32(0);
             f.DateDebut = read.GetDateTime(1);
-            f.DateFin = read.GetDateTime(2);
-            //   f.Anneeformation = read.GetDateTime(3);
+           f.DateFin = read.GetDateTime(2);
+            f.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
             
           
             return f;

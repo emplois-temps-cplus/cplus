@@ -14,6 +14,7 @@ namespace CompetencePlus.PackageEmploisTemps
         public FormAjouterEmploitemps()
         {
             InitializeComponent();
+            btajouter.Enabled = false;
         }
 
         public void refresh()
@@ -26,29 +27,99 @@ namespace CompetencePlus.PackageEmploisTemps
 
         private void btajouter_Click(object sender, EventArgs e)
         {
-            formSeancePlanning s = new formSeancePlanning();
-            s.ShowDialog();
-            this.refresh();
+        
+                formSeancePlanning s = new formSeancePlanning();
+                s.ShowDialog();
+               // this.refresh();
+              
            
         }
-        public Seanceplanning returnid(Seanceplanning s)
+       
+        int id;
+        public EmploisTemp update()
         {
-            Seanceplanning g = (Seanceplanning)seanceplanningBindingSource.Current;
-            int ide = g.Id;
-            return g;
 
+            EmploisTemp emploi =(EmploisTemp)emploisTempBindingSource.Current;
+            this.id = emploi.Id;
+            return emploi;
         }
-    
         private void FormAjouterEmploitemps_Load(object sender, EventArgs e)
         {
-          
+
+           
+            anneeFormationBindingSource.DataSource = null;
+            anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
             this.refresh();
-            anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select() ;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                Seanceplanning s = (Seanceplanning)seanceplanningBindingSource.Current;
+               
+                if (e.ColumnIndex == 4)
+                {
+                   FormUpdateSeancePlanning f = new FormUpdateSeancePlanning();
+                   f.update(s);
+                    f.ShowDialog();
+                    this.refresh();
+                }
+                if (e.ColumnIndex == 5 && MessageBox.Show("voulez vous supprimer cet seance", "Information dialog", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    new SeanceplanningDAO().Delete(s.Id);
+                    this.refresh();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                Seanceplanning s = (Seanceplanning)seanceplanningBindingSource.Current;
+
+                if (e.ColumnIndex == 5)
+                {
+                    FormUpdateSeancePlanning f = new FormUpdateSeancePlanning();
+                    f.update(s);
+                   f.ShowDialog();
+                    this.refresh();
+                }
+                if (e.ColumnIndex == 6 && MessageBox.Show("voulez vous supprimer cet seance", "Information dialog", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    new SeanceplanningDAO().Delete(s.Id);
+                    this.refresh();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+     
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+
+            EmploisTemp c = new EmploisTemp();
+            c.Id = 1;
+            c.Anneeformation = (PackageAnneeFormations.AnneeFormation)anneeFormationBindingSource.Current;
+            c.DateDebut = dateTimePicker1.Value;
+            c.DateFin = dateTimePicker2.Value;
+            new EmploisTempDAO().Add(c);
+           btajouter.Enabled = true;
+           btajouteremploitemps.Enabled = false;
         }
     }
 }

@@ -106,7 +106,7 @@ namespace CompetencePlus
 
         private void mesEmploisDeTempsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAjouterEmploitemps f = new FormAjouterEmploitemps();
+            Form_gestion_des_emplois_temps f = new Form_gestion_des_emplois_temps();
             f.Show();
         }
     }

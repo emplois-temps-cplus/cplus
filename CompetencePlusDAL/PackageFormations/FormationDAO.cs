@@ -16,7 +16,7 @@ namespace CompetencePlus.PackageFormations
            OleDbDataReader lire = MyConnection.ExecuteReader(reqeute);
            while (lire.Read())
            {
-               listformation.Add(new Formation(1));
+               listformation.Add(new Formation(2,"formation1"));
            }
 
 
@@ -26,11 +26,13 @@ namespace CompetencePlus.PackageFormations
 
        public Formation FindById(int id)
        {
-           string Requete = "Select * from Formations where id=" + id;
+         
+           string Requete = "Select * from Formations where Id=" + id;
            OleDbDataReader read = MyConnection.ExecuteReader(Requete);
            Formation g = new Formation();
            read.Read();
            g.Id = read.GetInt32(0);
+           g.Code = read.GetString(5);
 
            MyConnection.Close();
            return g;

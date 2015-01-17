@@ -152,3 +152,5 @@ C:\Users\Zbaaakh\Desktop\NotesCplus\cplus\CompetencePlusForm\obj\x86\Debug\Compe
 C:\Users\chabba\Desktop\tachesemploidetemps\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageEmploisTemps.formSeancePlanning.resources
 C:\Users\chabba\Desktop\tachesemploidetemps\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageEmploisTemps.FormAjouterEmploitemps.resources
 C:\Users\chabba\Desktop\tachesemploidetemps\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.UserControltime.resources
+C:\Users\chabba\Desktop\tachesemploidetemps\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageEmploisTemps.FormUpdateSeancePlanning.resources
+C:\Users\chabba\Desktop\tachesemploidetemps\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageEmploisTemps.Form_gestion_des_emplois_temps.resources

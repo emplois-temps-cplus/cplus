@@ -16,16 +16,16 @@ namespace CompetencePlus.PackageEmploisTemps
             set { id = value; }
         }
 
-      private int heuredebut;
+      private string heuredebut;
      
-        public int Heuredebut
+        public string Heuredebut
         {
             get { return heuredebut; }
             set { heuredebut = value; }
         }
        
-        private int heurefin;
-        public int Heurefin
+        private string heurefin;
+        public string Heurefin
         {
             get { return heurefin; }
             set { heurefin = value; }
@@ -43,9 +43,18 @@ namespace CompetencePlus.PackageEmploisTemps
             get { return formation; }
             set { formation = value; }
         }
+        EmploisTemp emploitemp;
 
-        public Seanceplanning(int id, string jour,int heuredebut, int heurefin, Formation formation)
+
+        public EmploisTemp Emploitemp
         {
+            get { return emploitemp; }
+            set { emploitemp = value; }
+        }
+
+        public Seanceplanning(EmploisTemp emploitemp,int id, string jour,string heuredebut,string heurefin, Formation formation)
+        {
+            this.emploitemp = emploitemp;
             this.id = id;
             this.heuredebut = heuredebut;
             this.heurefin = heurefin;

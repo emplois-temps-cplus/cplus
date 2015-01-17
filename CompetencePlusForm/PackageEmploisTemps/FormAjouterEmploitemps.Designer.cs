@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btajouteremploitemps = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.anneeFormationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
@@ -39,49 +40,63 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btajouter = new System.Windows.Forms.Button();
+            this.Emploitemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heuredebutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heurefinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btajouter = new System.Windows.Forms.Button();
+            this.emploisTempBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.anneeFormationBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seanceplanningBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emploisTempBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btajouteremploitemps);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 129);
+            this.groupBox1.Size = new System.Drawing.Size(332, 155);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Emploistemps";
             // 
-            // textBox2
+            // btajouteremploitemps
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.btajouteremploitemps.Location = new System.Drawing.Point(142, 115);
+            this.btajouteremploitemps.Name = "btajouteremploitemps";
+            this.btajouteremploitemps.Size = new System.Drawing.Size(86, 23);
+            this.btajouteremploitemps.TabIndex = 3;
+            this.btajouteremploitemps.Text = "Ajouter";
+            this.btajouteremploitemps.UseVisualStyleBackColor = true;
+            this.btajouteremploitemps.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // dateTimePicker2
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.dateTimePicker2.Location = new System.Drawing.Point(142, 89);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(154, 20);
+            this.dateTimePicker2.TabIndex = 7;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(142, 63);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(154, 20);
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // comboBox1
             // 
@@ -128,9 +143,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 147);
+            this.groupBox2.Location = new System.Drawing.Point(12, 173);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(598, 214);
+            this.groupBox2.Size = new System.Drawing.Size(634, 214);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Séances";
@@ -140,31 +155,31 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Emploitemp,
+            this.jourDataGridViewTextBoxColumn,
             this.heuredebutDataGridViewTextBoxColumn,
             this.heurefinDataGridViewTextBoxColumn,
-            this.jourDataGridViewTextBoxColumn,
             this.formationDataGridViewTextBoxColumn,
             this.Column1,
             this.Column2});
             this.dataGridView1.DataSource = this.seanceplanningBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(528, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(622, 176);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // seanceplanningBindingSource
+            // Emploitemp
             // 
-            this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
+            this.Emploitemp.DataPropertyName = "Emploitemp";
+            this.Emploitemp.HeaderText = "Emploitemp";
+            this.Emploitemp.Name = "Emploitemp";
             // 
-            // btajouter
+            // jourDataGridViewTextBoxColumn
             // 
-            this.btajouter.Location = new System.Drawing.Point(509, 118);
-            this.btajouter.Name = "btajouter";
-            this.btajouter.Size = new System.Drawing.Size(101, 23);
-            this.btajouter.TabIndex = 2;
-            this.btajouter.Text = "Ajouter";
-            this.btajouter.UseVisualStyleBackColor = true;
-            this.btajouter.Click += new System.EventHandler(this.btajouter_Click);
+            this.jourDataGridViewTextBoxColumn.DataPropertyName = "Jour";
+            this.jourDataGridViewTextBoxColumn.HeaderText = "Jour";
+            this.jourDataGridViewTextBoxColumn.Name = "jourDataGridViewTextBoxColumn";
             // 
             // heuredebutDataGridViewTextBoxColumn
             // 
@@ -180,12 +195,6 @@
             this.heurefinDataGridViewTextBoxColumn.Name = "heurefinDataGridViewTextBoxColumn";
             this.heurefinDataGridViewTextBoxColumn.Width = 90;
             // 
-            // jourDataGridViewTextBoxColumn
-            // 
-            this.jourDataGridViewTextBoxColumn.DataPropertyName = "Jour";
-            this.jourDataGridViewTextBoxColumn.HeaderText = "Jour";
-            this.jourDataGridViewTextBoxColumn.Name = "jourDataGridViewTextBoxColumn";
-            // 
             // formationDataGridViewTextBoxColumn
             // 
             this.formationDataGridViewTextBoxColumn.DataPropertyName = "Formation";
@@ -196,6 +205,7 @@
             // 
             this.Column1.HeaderText = "Modifier";
             this.Column1.Image = global::CompetencePlus.Properties.Resources.Update;
+            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.Column1.Name = "Column1";
             this.Column1.Width = 50;
             // 
@@ -203,14 +213,33 @@
             // 
             this.Column2.HeaderText = "Supprimer";
             this.Column2.Image = global::CompetencePlus.Properties.Resources.Delete;
+            this.Column2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.Column2.Name = "Column2";
             this.Column2.Width = 50;
+            // 
+            // seanceplanningBindingSource
+            // 
+            this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
+            // 
+            // btajouter
+            // 
+            this.btajouter.Location = new System.Drawing.Point(545, 144);
+            this.btajouter.Name = "btajouter";
+            this.btajouter.Size = new System.Drawing.Size(101, 23);
+            this.btajouter.TabIndex = 2;
+            this.btajouter.Text = "Ajouter";
+            this.btajouter.UseVisualStyleBackColor = true;
+            this.btajouter.Click += new System.EventHandler(this.btajouter_Click);
+            // 
+            // emploisTempBindingSource
+            // 
+            this.emploisTempBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.EmploisTemp);
             // 
             // FormAjouterEmploitemps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 373);
+            this.ClientSize = new System.Drawing.Size(658, 399);
             this.Controls.Add(this.btajouter);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -223,6 +252,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seanceplanningBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emploisTempBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,8 +260,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -241,11 +269,16 @@
         private System.Windows.Forms.BindingSource seanceplanningBindingSource;
         private System.Windows.Forms.Button btajouter;
         private System.Windows.Forms.BindingSource anneeFormationBindingSource;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btajouteremploitemps;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Emploitemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jourDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heuredebutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heurefinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jourDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column2;
+        private System.Windows.Forms.BindingSource emploisTempBindingSource;
     }
 }

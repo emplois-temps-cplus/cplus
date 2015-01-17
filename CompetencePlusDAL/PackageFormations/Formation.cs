@@ -46,9 +46,18 @@ namespace CompetencePlus.PackageFormations
             get { return anneformation; }
             set { anneformation = value; }
         }
-        public Formation(int id,Formateur formateur,Module module,Groupe groupe,AnneeFormation anneformation)
+        private string code;
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
+
+        public Formation(int id, Formateur formateur, Module module, Groupe groupe, AnneeFormation anneformation, string code)
         {
             this.id = id;
+            this.code = code;
             this.formateur = formateur;
             this.module = module;
             this.groupe = groupe;
@@ -57,14 +66,15 @@ namespace CompetencePlus.PackageFormations
       public Formation()
       {
       }
-      public Formation(int id)
+      public Formation(int id,string code)
       {
           this.id = id;
+          this.code = code;
       }
       public override string ToString()
       {
-         
-        return id.ToString();
+
+          return code;
       }
 
     }

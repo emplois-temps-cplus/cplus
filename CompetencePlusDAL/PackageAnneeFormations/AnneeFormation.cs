@@ -47,6 +47,10 @@ namespace CompetencePlus.PackageAnneeFormations
       public AnneeFormation()
       {
       }
+      public override string ToString()
+      {
+          return id.ToString();
+      }
 
 
     }

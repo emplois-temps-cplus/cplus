@@ -43,8 +43,19 @@ namespace CompetencePlus.PackageEmploisTemps
             this.dateFin = datefin;
             this.anneeformation = anneeformation;
         }
+        public EmploisTemp(int id, DateTime datedebut, DateTime datefin)
+        {
+            this.id = id;
+            this.DateDebut = datedebut;
+            this.dateFin = datefin;
+          
+        }
 
 
+        public override string ToString()
+        {
+            return id.ToString();
+        }
  
       public EmploisTemp()
       {

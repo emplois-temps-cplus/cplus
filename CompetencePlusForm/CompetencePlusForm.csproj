@@ -61,6 +61,12 @@
       <DependentUpon>FormGestionDB.cs</DependentUpon>
     </Compile>
     <Compile Include="PackageEmploisTemps\Class2.cs" />
+    <Compile Include="PackageEmploisTemps\Formgestiondesemploistemps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEmploisTemps\Formgestiondesemploistemps.Designer.cs">
+      <DependentUpon>Formgestiondesemploistemps.cs</DependentUpon>
+    </Compile>
     <Compile Include="PackageEmploisTemps\FormAjouterEmploitemps.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="PackageEmploisTemps\formSeancePlanning.Designer.cs">
       <DependentUpon>formSeancePlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEmploisTemps\FormUpdateSeancePlanning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEmploisTemps\FormUpdateSeancePlanning.Designer.cs">
+      <DependentUpon>FormUpdateSeancePlanning.cs</DependentUpon>
     </Compile>
     <Compile Include="PackageFilieres\FormFiliere.cs">
       <SubType>Form</SubType>
@@ -163,11 +175,17 @@
     <EmbeddedResource Include="PackageDB\FormGestionDB.resx">
       <DependentUpon>FormGestionDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PackageEmploisTemps\Formgestiondesemploistemps.resx">
+      <DependentUpon>Formgestiondesemploistemps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageEmploisTemps\FormAjouterEmploitemps.resx">
       <DependentUpon>FormAjouterEmploitemps.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PackageEmploisTemps\formSeancePlanning.resx">
       <DependentUpon>formSeancePlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEmploisTemps\FormUpdateSeancePlanning.resx">
+      <DependentUpon>FormUpdateSeancePlanning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PackageFilieres\FormFiliere.resx">
       <DependentUpon>FormFiliere.cs</DependentUpon>
@@ -217,6 +235,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\CompetencePlus.PackageAnneeFormations.AnneeFormation.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageDB.IncrementationDB.datasource" />
+    <None Include="Properties\DataSources\CompetencePlus.PackageEmploisTemps.EmploisTemp.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageEmploisTemps.Seanceplanning.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageFilieres.Filiere.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageFormations.Formation.datasource" />

@@ -1,6 +1,6 @@
 ﻿namespace CompetencePlus.PackageEmploisTemps
 {
-    partial class formSeancePlanning
+    partial class FormUpdateSeancePlanning
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.userControltime2 = new CompetencePlus.UserControltime();
             this.userControltime1 = new CompetencePlus.UserControltime();
             this.FormationcomboBox = new System.Windows.Forms.ComboBox();
@@ -47,38 +46,18 @@
             this.mercrediradio = new System.Windows.Forms.RadioButton();
             this.mardiradio = new System.Windows.Forms.RadioButton();
             this.Lundiradio = new System.Windows.Forms.RadioButton();
-            this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2.SuspendLayout();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.formationBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seanceplanningBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.userControltime2);
-            this.groupBox2.Controls.Add(this.userControltime1);
-            this.groupBox2.Controls.Add(this.FormationcomboBox);
-            this.groupBox2.Controls.Add(this.btannuler);
-            this.groupBox2.Controls.Add(this.btenregistrer);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 309);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "SeancePlanning";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // userControltime2
             // 
             this.userControltime2.Hm = "0:0";
-            this.userControltime2.Hour = 0+"";
+            this.userControltime2.Hour = null;
             this.userControltime2.Location = new System.Drawing.Point(251, 142);
-            this.userControltime2.Min = 00+"";
+            this.userControltime2.Min = null;
             this.userControltime2.Name = "userControltime2";
             this.userControltime2.Size = new System.Drawing.Size(179, 69);
             this.userControltime2.TabIndex = 11;
@@ -86,9 +65,9 @@
             // userControltime1
             // 
             this.userControltime1.Hm = "0:0";
-            this.userControltime1.Hour = 0+"";
+            this.userControltime1.Hour = null;
             this.userControltime1.Location = new System.Drawing.Point(251, 71);
-            this.userControltime1.Min = 00+"";
+            this.userControltime1.Min = null;
             this.userControltime1.Name = "userControltime1";
             this.userControltime1.Size = new System.Drawing.Size(179, 69);
             this.userControltime1.TabIndex = 10;
@@ -248,32 +227,45 @@
             this.Lundiradio.Text = "Lundi";
             this.Lundiradio.UseVisualStyleBackColor = true;
             // 
-            // seanceplanningBindingSource
+            // groupBox2
             // 
-            this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
+            this.groupBox2.Controls.Add(this.userControltime2);
+            this.groupBox2.Controls.Add(this.userControltime1);
+            this.groupBox2.Controls.Add(this.FormationcomboBox);
+            this.groupBox2.Controls.Add(this.btannuler);
+            this.groupBox2.Controls.Add(this.btenregistrer);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Location = new System.Drawing.Point(31, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(483, 309);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "SeancePlanning";
             // 
-            // formSeancePlanning
+            // FormUpdateSeancePlanning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 333);
+            this.ClientSize = new System.Drawing.Size(531, 376);
             this.Controls.Add(this.groupBox2);
-            this.Name = "formSeancePlanning";
-            this.Text = "formSeancePlanning";
-            this.Load += new System.EventHandler(this.formSeancePlanning_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Name = "FormUpdateSeancePlanning";
+            this.Text = "FormUpdateSeancePlanning";
             ((System.ComponentModel.ISupportInitialize)(this.formationBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seanceplanningBindingSource)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox2;
+        private UserControltime userControltime2;
+        private UserControltime userControltime1;
         private System.Windows.Forms.ComboBox FormationcomboBox;
         private System.Windows.Forms.Button btannuler;
         private System.Windows.Forms.Button btenregistrer;
@@ -288,9 +280,7 @@
         private System.Windows.Forms.RadioButton mercrediradio;
         private System.Windows.Forms.RadioButton mardiradio;
         private System.Windows.Forms.RadioButton Lundiradio;
-        private UserControltime userControltime2;
-        private UserControltime userControltime1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.BindingSource formationBindingSource;
-        private System.Windows.Forms.BindingSource seanceplanningBindingSource;
     }
 }

@@ -20,5 +20,16 @@ namespace CompetencePlus.PackageAnneeFormations
           }
           return lstanneformation;
       }
+      public AnneeFormation findbyid(int id)
+      {
+          List<AnneeFormation> lstanneformation = new List<AnneeFormation>();
+          string rqt = "select * from AnneeFormations where id="+id;
+          OleDbDataReader lire = MyConnection.ExecuteReader(rqt);
+          while (lire.Read())
+          {
+              lstanneformation.Add(new AnneeFormation(lire.GetInt32(0), lire.GetString(1), lire.GetDateTime(2), lire.GetDateTime(3)));
+          }
+          return lstanneformation.ElementAt(0);
+      }
     }
 }

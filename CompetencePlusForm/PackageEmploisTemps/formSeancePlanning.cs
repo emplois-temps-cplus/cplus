@@ -22,17 +22,18 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             this.Dispose();
         }
-       
 
+        int id=3;
       
 
         private void btenregistrer_Click(object sender, EventArgs e)
         {
-           
+            
             Seanceplanning s = new Seanceplanning();
+            s.Emploitemp = (EmploisTemp)new EmploisTempDAO().FindById(id);
             s.Id = 1;
-            s.Heuredebut = userControltime1.Hour + userControltime1.Min;
-            s.Heurefin = userControltime2.Hour + userControltime2.Min;
+            s.Heuredebut = userControltime1.Hm;
+            s.Heurefin = userControltime2.Hm;
             if (Lundiradio.Checked)
             {
                 s.Jour = "Lundi";
@@ -66,10 +67,15 @@ namespace CompetencePlus.PackageEmploisTemps
          MessageBox.Show(s.Jour+""+s.Heurefin+""+s.Heuredebut+""+s.Formation);
          this.Dispose();
         }
-       
         private void formSeancePlanning_Load(object sender, EventArgs e)
         {
             formationBindingSource.DataSource = new PackageFormations.FormationDAO().select();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+      
     }
 }

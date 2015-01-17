@@ -12,13 +12,13 @@ namespace CompetencePlus.PackageEmploisTemps
     {
       public  void Add(Seanceplanning s)
      {//EmploisTemp_id
-            string Requete = "Insert into SeancePlannings(jour,heuredebut,heurefin,Formation_id) values ('"+s.Jour+"',"+s.Heuredebut+","+s.Heurefin+","+s.Formation.Id+")";
+         string Requete = "Insert into SeancePlannings(EmploisTemp_id,jour,heuredebut,heurefin,Formation_id) values ("+s.Emploitemp.Id+",'" + s.Jour + "','" + s.Heuredebut + "','" + s.Heurefin + "'," + s.Formation.Id + ")";
             MyConnection.ExecuteNonQuery(Requete);
         }
 
-        public  void Update(Seanceplanning s )
+        public  void Update(Seanceplanning s)
         {
-            string Requete = "Update  SeancePlannings set jour ='"+s.Jour+",heuredebut ="+s.Heuredebut+",heurefin="+s.Heurefin+" where id ="+s.Id;
+            string Requete = "Update  SeancePlannings set jour ='"+s.Jour+"',heuredebut ='"+s.Heuredebut+"',heurefin='"+s.Heurefin+"',Formation_id="+s.Formation+" where id ="+s.Id;
             MyConnection.ExecuteNonQuery(Requete);
         }
 
@@ -36,10 +36,11 @@ namespace CompetencePlus.PackageEmploisTemps
             while (read.Read())
             {
                Seanceplanning f = new Seanceplanning();
+              f.Emploitemp = new EmploisTempDAO().FindById(read.GetInt32(0));
                 f.Id = read.GetInt32(1);
                 f.Jour = read.GetString(2);
-                f.Heuredebut= read.GetInt32(3);
-                f.Heurefin = read.GetInt32(4);
+                f.Heuredebut= read.GetString(3);
+                f.Heurefin = read.GetString(4);
                 f.Formation = new PackageFormations.FormationDAO().FindById(read.GetInt32(5));
                 ListSeancePlannings.Add(f);
             }
@@ -56,8 +57,9 @@ namespace CompetencePlus.PackageEmploisTemps
               Seanceplanning f = new Seanceplanning();
           f.Id = read.GetInt32(0);
                 f.Jour = read.GetString(1);
-                f.Heuredebut= read.GetInt32(2);
-                f.Heurefin = read.GetInt32(3);
+            //
+                f.Heuredebut= read.GetString(2);
+                f.Heurefin = read.GetString(3);
             return f;
         }
 
