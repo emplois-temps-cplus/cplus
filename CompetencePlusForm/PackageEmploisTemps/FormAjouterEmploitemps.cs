@@ -20,19 +20,28 @@ namespace CompetencePlus.PackageEmploisTemps
         public void refresh()
         {
             seanceplanningBindingSource.DataSource = null;
-            seanceplanningBindingSource.DataSource = new SeanceplanningDAO().Select();
-
+          
+           // seanceplanningBindingSource.DataSource = new SeanceplanningDAO().Select(new SeanceplanningDAO().Lastnumber());
+           seanceplanningBindingSource.DataSource = new SeanceplanningDAO().FindById(int.Parse(dataGridView1.SelectedRows[0].Cells["Column3"].Value.ToString())); // ?nred lwla ? !! att nchof 
+        
+            
 
         }
-
+        public static List<Seanceplanning> liste = new List<Seanceplanning>();
         private void btajouter_Click(object sender, EventArgs e)
         {
         
                 formSeancePlanning s = new formSeancePlanning();
                 s.ShowDialog();
                // this.refresh();
+
+                MessageBox.Show(new SeanceplanningDAO().Lastnumber().ToString());
+        
+            seanceplanningBindingSource.DataSource = null;
+        seanceplanningBindingSource.DataSource =  SeanceplanningDAO.Select(new SeanceplanningDAO().Lastnumber());
+           // seanceplanningBindingSource.DataSource = new SeanceplanningDAO().FindById(int.Parse(dataGridView1.SelectedRows[0].Cells["Column3"].Value.ToString()));  
               
-           
+          
         }
        
         int id;
@@ -45,11 +54,11 @@ namespace CompetencePlus.PackageEmploisTemps
         }
         private void FormAjouterEmploitemps_Load(object sender, EventArgs e)
         {
-
+           
            
             anneeFormationBindingSource.DataSource = null;
             anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
-            this.refresh();
+           // this.refresh();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

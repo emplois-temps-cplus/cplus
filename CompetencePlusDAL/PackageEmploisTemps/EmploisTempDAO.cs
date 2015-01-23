@@ -51,16 +51,36 @@ namespace CompetencePlus.PackageEmploisTemps
         public EmploisTemp FindById(int id)
         {
             string Requete = "Select * from EmploisTemps where id=" + id;
+            List<EmploisTemp> lstemploi = new List<EmploisTemp>();
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
-            read.Read();
-            EmploisTemp f = new EmploisTemp();
-            f.Id = read.GetInt32(0);
-            f.DateDebut = read.GetDateTime(1);
-           f.DateFin = read.GetDateTime(2);
-            f.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
+            while (read.Read())
+            {
+                EmploisTemp f = new EmploisTemp();
+
+                f.Id = read.GetInt32(0);
+                f.DateDebut = read.GetDateTime(1);
+                f.DateFin = read.GetDateTime(2);
+                f.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
+                lstemploi.Add(f);
+            }
+            return lstemploi.ElementAt(0);
             
-          
-            return f;
+        }
+        public int GetLastnumber()
+        {
+            int id = 0;
+            string Requete = "Select max(id) from EmploisTemps";
+           
+            OleDbDataReader read = MyConnection.ExecuteReader(Requete);
+            while (read.Read())
+            {
+                
+
+                id = read.GetInt32(0);
+                break;
+            }
+            return id;
+            // ? good khali hayda nchof
         }
 
     }

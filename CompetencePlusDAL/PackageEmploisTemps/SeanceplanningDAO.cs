@@ -27,16 +27,18 @@ namespace CompetencePlus.PackageEmploisTemps
             string Requete = "Delete From SeancePlannings where id="+id;
             MyConnection.ExecuteNonQuery(Requete);
         }
+     
 
-        public  List<Seanceplanning> Select()
+  public static  List<Seanceplanning> ListSeancePlannings = new List<Seanceplanning>();
+        public static  List<Seanceplanning> Select(int id)
         {
-            string Requete = "Select * from SeancePlannings";
-            List<Seanceplanning> ListSeancePlannings = new List<Seanceplanning>();
+            string Requete = "Select * from SeancePlannings where id = "+id;
+           
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
             while (read.Read())
             {
                Seanceplanning f = new Seanceplanning();
-              f.Emploitemp = new EmploisTempDAO().FindById(read.GetInt32(0));
+              f.Emploitemp = new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber());
                 f.Id = read.GetInt32(1);
                 f.Jour = read.GetString(2);
                 f.Heuredebut= read.GetString(3);
@@ -47,20 +49,41 @@ namespace CompetencePlus.PackageEmploisTemps
             MyConnection.Close();
             return ListSeancePlannings;
         }
+        public int Lastnumber()
+        {
+           //
+            int idd=0;
+            string Requete = "Select max(id) from SeancePlannings";
+            List<Seanceplanning> ListSeancePlannings = new List<Seanceplanning>();
+            OleDbDataReader read = MyConnection.ExecuteReader(Requete);
+            while (read.Read())
+            {
+                
+                idd = read.GetInt32(0);
+               
+               
+            }
+            MyConnection.Close();
+            return idd;
+        }
       
 
         public Seanceplanning FindById(int id)
         {
             string Requete = "Select * from SeancePlannings where id="+id;
+            List<Seanceplanning> lstsance = new List<Seanceplanning>();
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
-            read.Read();
-              Seanceplanning f = new Seanceplanning();
-          f.Id = read.GetInt32(0);
+            while (read.Read())
+            {
+                Seanceplanning f = new Seanceplanning();
+                f.Id = read.GetInt32(0);
                 f.Jour = read.GetString(1);
-            //
-                f.Heuredebut= read.GetString(2);
+                f.Heuredebut = read.GetString(2);
                 f.Heurefin = read.GetString(3);
-            return f;
+                lstsance.Add(f);
+            }
+            return lstsance.ElementAt(0);
+         
         }
 
        
