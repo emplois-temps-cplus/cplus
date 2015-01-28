@@ -63,7 +63,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
 
             Seanceplanning s = new Seanceplanning();
-            s.Id = 1;
+            
             if (Lundiradio.Checked)
             {
                 s.Jour = "Lundi";
