@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CompetencePlus.PackageAnneeFormations;
 
 namespace CompetencePlus.PackageEmploisTemps
 {
@@ -14,17 +15,32 @@ namespace CompetencePlus.PackageEmploisTemps
         public FormAjouterEmploitemps()
         {
             InitializeComponent();
-            btajouter.Enabled = false;
+            
+            if (ismodify == true)
+                btmodifier.Enabled = true;
+            else
+                btajouter.Enabled = false;
         }
-
+        public static bool ismodify = false;
+        public void ismodfi(int xx)
+        {
+            if (xx == 1)
+                ismodify = true;
+            else
+                ismodify = false;
+        }
         public void refresh()
         {
+            
             seanceplanningBindingSource.DataSource = null;
           
            // seanceplanningBindingSource.DataSource = new SeanceplanningDAO().Select(new SeanceplanningDAO().Lastnumber());
-           seanceplanningBindingSource.DataSource = new SeanceplanningDAO().FindById(int.Parse(dataGridView1.SelectedRows[0].Cells["Column3"].Value.ToString())); // ?nred lwla ? !! att nchof 
+          if(ismodify==false)
+            seanceplanningBindingSource.DataSource = new SeanceplanningDAO().FindById(int.Parse(dataGridView1.SelectedRows[0].Cells["Column3"].Value.ToString())); // ?nred lwla ? !! att nchof 
+            if(ismodify==true)
+            seanceplanningBindingSource.DataSource = new SeanceplanningDAO().FindById(10);
+
         
-            
 
         }
         public static List<Seanceplanning> liste = new List<Seanceplanning>();
@@ -54,11 +70,23 @@ namespace CompetencePlus.PackageEmploisTemps
         }
         private void FormAjouterEmploitemps_Load(object sender, EventArgs e)
         {
-           
-           
+            if (ismodify == false)
+                btajouteremploitemps.Visible = true;           // this.refresh();  
             anneeFormationBindingSource.DataSource = null;
-            anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
-           // this.refresh();
+
+                anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
+            
+
+            if (ismodify == false)
+            {
+                anneeFormationBindingSource.DataSource = null;
+
+                anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
+            }
+            else
+            {
+                this.refresh();
+            } 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -100,8 +128,10 @@ namespace CompetencePlus.PackageEmploisTemps
 
                 if (e.ColumnIndex == 5)
                 {
+                    ismodify = true;
                     FormUpdateSeancePlanning f = new FormUpdateSeancePlanning();
                     f.update(s);
+                   
                    f.ShowDialog();
                     this.refresh();
                 }
@@ -129,6 +159,26 @@ namespace CompetencePlus.PackageEmploisTemps
             new EmploisTempDAO().Add(c);
            btajouter.Enabled = true;
            btajouteremploitemps.Enabled = false;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            this.refresh(); 
+
+        }
+        public static int idemploi = 0;
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            idemploi = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            EmploisTemp d = new EmploisTemp();
+            d.Id = idemploi;
+            MessageBox.Show(idemploi.ToString());
+            d.Anneeformation = (AnneeFormation)comboBox1.SelectedItem;
+            d.DateDebut = dateTimePicker1.Value;
+            d.DateFin = dateTimePicker2.Value;
+            new EmploisTempDAO().Update(d);
+            btajouter.Enabled = true;
+
         }
     }
 }

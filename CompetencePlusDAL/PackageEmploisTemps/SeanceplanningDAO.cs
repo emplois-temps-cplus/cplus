@@ -18,7 +18,7 @@ namespace CompetencePlus.PackageEmploisTemps
 
         public  void Update(Seanceplanning s)
         {
-            string Requete = "Update  SeancePlannings set jour ='"+s.Jour+"',heuredebut ='"+s.Heuredebut+"',heurefin='"+s.Heurefin+"',Formation_id="+s.Formation+" where id ="+s.Id;
+            string Requete = "Update  SeancePlannings set jour ='"+s.Jour+"',heuredebut ='"+s.Heuredebut+"',heurefin='"+s.Heurefin+"',Formation_id="+s.Formation.Id+" where id ="+s.Id;
             MyConnection.ExecuteNonQuery(Requete);
         }
 
@@ -75,11 +75,13 @@ namespace CompetencePlus.PackageEmploisTemps
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
             while (read.Read())
             {
-                Seanceplanning f = new Seanceplanning();
-                f.Id = read.GetInt32(0);
-                f.Jour = read.GetString(1);
-                f.Heuredebut = read.GetString(2);
-                f.Heurefin = read.GetString(3);
+               Seanceplanning f = new Seanceplanning();
+               f.Emploitemp = new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber());
+                f.Id = read.GetInt32(1);
+               f.Jour = read.GetString(2);
+                f.Heuredebut = read.GetString(3);
+                f.Heurefin = read.GetString(4);
+                f.Formation = new PackageFormations.FormationDAO().FindById(read.GetInt32(5));
                 lstsance.Add(f);
             }
             return lstsance.ElementAt(0);

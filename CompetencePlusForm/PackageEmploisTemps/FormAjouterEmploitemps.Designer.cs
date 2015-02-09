@@ -40,9 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btajouter = new System.Windows.Forms.Button();
-            this.emploisTempBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Emploitemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heuredebutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btajouter = new System.Windows.Forms.Button();
+            this.emploisTempBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btmodifier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.anneeFormationBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btmodifier);
             this.groupBox1.Controls.Add(this.btajouteremploitemps);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -77,12 +79,13 @@
             // 
             // btajouteremploitemps
             // 
-            this.btajouteremploitemps.Location = new System.Drawing.Point(142, 115);
+            this.btajouteremploitemps.Location = new System.Drawing.Point(228, 115);
             this.btajouteremploitemps.Name = "btajouteremploitemps";
             this.btajouteremploitemps.Size = new System.Drawing.Size(86, 23);
             this.btajouteremploitemps.TabIndex = 3;
             this.btajouteremploitemps.Text = "Ajouter";
             this.btajouteremploitemps.UseVisualStyleBackColor = true;
+            this.btajouteremploitemps.Visible = false;
             this.btajouteremploitemps.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker2
@@ -171,24 +174,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // seanceplanningBindingSource
-            // 
-            this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
-            // 
-            // btajouter
-            // 
-            this.btajouter.Location = new System.Drawing.Point(545, 144);
-            this.btajouter.Name = "btajouter";
-            this.btajouter.Size = new System.Drawing.Size(101, 23);
-            this.btajouter.TabIndex = 2;
-            this.btajouter.Text = "Ajouter";
-            this.btajouter.UseVisualStyleBackColor = true;
-            this.btajouter.Click += new System.EventHandler(this.btajouter_Click);
-            // 
-            // emploisTempBindingSource
-            // 
-            this.emploisTempBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.EmploisTemp);
-            // 
             // Emploitemp
             // 
             this.Emploitemp.DataPropertyName = "Emploitemp";
@@ -244,6 +229,34 @@
             this.Column3.Name = "Column3";
             this.Column3.Visible = false;
             // 
+            // seanceplanningBindingSource
+            // 
+            this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
+            // 
+            // btajouter
+            // 
+            this.btajouter.Location = new System.Drawing.Point(545, 144);
+            this.btajouter.Name = "btajouter";
+            this.btajouter.Size = new System.Drawing.Size(101, 23);
+            this.btajouter.TabIndex = 2;
+            this.btajouter.Text = "Ajouter";
+            this.btajouter.UseVisualStyleBackColor = true;
+            this.btajouter.Click += new System.EventHandler(this.btajouter_Click);
+            // 
+            // emploisTempBindingSource
+            // 
+            this.emploisTempBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.EmploisTemp);
+            // 
+            // btmodifier
+            // 
+            this.btmodifier.Location = new System.Drawing.Point(142, 115);
+            this.btmodifier.Name = "btmodifier";
+            this.btmodifier.Size = new System.Drawing.Size(75, 23);
+            this.btmodifier.TabIndex = 8;
+            this.btmodifier.Text = "modifier";
+            this.btmodifier.UseVisualStyleBackColor = true;
+            this.btmodifier.Click += new System.EventHandler(this.button1_Click_3);
+            // 
             // FormAjouterEmploitemps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,5 +303,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        public System.Windows.Forms.Button btmodifier;
     }
 }

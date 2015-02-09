@@ -53,3 +53,10 @@ E:\tachesgithubemploitemps\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.c
 E:\tachesgithubemploitemps\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.dll
 E:\tachesgithubemploitemps\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.pdb
 E:\tachesgithubemploitemps\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.csprojResolveAssemblyReference.cache
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\bin\Debug\CompetencePlusDAL.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\bin\Debug\CompetencePlusDAL.pdb
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\Interop.ADOX.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.csproj.ResolveComReference.cache
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.pdb
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.csprojResolveAssemblyReference.cache

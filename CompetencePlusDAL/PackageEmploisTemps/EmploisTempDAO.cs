@@ -19,7 +19,7 @@ namespace CompetencePlus.PackageEmploisTemps
 
         public void Update(EmploisTemp e)
         {
-            string Requete = "Update  EmploisTemps set dateDebut='" + e.DateDebut + "',dateFin='" + e.DateFin + "',anneformation_id='"+e.Anneeformation.Titre+" where id="+e.Id;
+            string Requete = "Update  EmploisTemps set dateDebut='" + e.DateDebut + "',dateFin='" + e.DateFin + "',anneformation_id="+e.Anneeformation.Id+" where id="+e.Id;
             MyConnection.ExecuteNonQuery(Requete);
         }
 
