@@ -80,7 +80,54 @@ namespace CompetencePlus.PackageEmploisTemps
                 break;
             }
             return id;
-            // ? good khali hayda nchof
+           
+
+        }
+        public List<EmploisTemp> FindByemploitemp(EmploisTemp g)
+        {
+            string Requete = "Select * from  ";
+            if ( g.Anneeformation != null || g.DateDebut != null || g.DateFin != null)
+            {
+                Requete += " where ";
+            }
+            bool and = false;
+            if (g.Anneeformation != null)
+            {
+                Requete += " anneeformation_id like '%" + g.Anneeformation.Id + "%'";
+                and = true;
+            }
+            if (g.DateDebut != null)
+            {
+                if (and) Requete += " and ";
+                Requete += "dateDebut  like '%" + g.DateDebut+ "%'";
+                and = true;
+            }
+            if (g.DateFin!= null)
+            {
+                if (and) Requete += " and ";
+                Requete += " DateFin like '%" + g.DateFin + "%'";
+                and = true;
+            }
+            
+
+            List<EmploisTemp> Listemploi = new List<EmploisTemp>();
+            OleDbDataReader read = MyConnection.ExecuteReader(Requete);
+            while (read.Read())
+            {
+               EmploisTemp d = new EmploisTemp();
+                d.Anneeformation =new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
+                d.DateDebut = read.GetDateTime(1);
+                d.DateFin = read.GetDateTime(2);
+                
+                Listemploi.Add(d);
+
+
+             
+            }
+            MyConnection.Close();
+            return Listemploi;
+
+
         }
 
     }

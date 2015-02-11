@@ -26,7 +26,7 @@ namespace CompetencePlus.PackageEmploisTemps
             string chaine = s.Heuredebut;
             string[] remplir2 = chaine2.Split(':');
             string[] remplir = chaine.Split(':');
-            formationBindingSource.DataSource = s.Formation;//att nchof ndiro
+            formationBindingSource.DataSource = s.Formation;
             userControltime1.Hour = remplir[0].ToString();
             userControltime1.Min = remplir[1].ToString();
             userControltime2.Hour = remplir2[0].ToString();
@@ -111,5 +111,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             this.Dispose();
         }
+
+      
     }
 }

@@ -70,13 +70,14 @@ namespace CompetencePlus.PackageEmploisTemps
 
         public Seanceplanning FindById(int id)
         {
-            string Requete = "Select * from SeancePlannings where id="+id;
+            string Requete = "Select * from SeancePlannings where EmploisTemp_id=" + id;
             List<Seanceplanning> lstsance = new List<Seanceplanning>();
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
             while (read.Read())
             {
                Seanceplanning f = new Seanceplanning();
-               f.Emploitemp = new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber());
+              f.Emploitemp = new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber());
+               
                 f.Id = read.GetInt32(1);
                f.Jour = read.GetString(2);
                 f.Heuredebut = read.GetString(3);
@@ -88,6 +89,26 @@ namespace CompetencePlus.PackageEmploisTemps
          
         }
 
+        public List<Seanceplanning> FindByIdemploitemp(int id)
+        {
+            string Requete = "Select * from SeancePlannings where EmploisTemp_id=" + id;
+            List<Seanceplanning> lstsance = new List<Seanceplanning>();
+            OleDbDataReader read = MyConnection.ExecuteReader(Requete);
+            while (read.Read())
+            {
+                Seanceplanning f = new Seanceplanning();
+               // f.Emploitemp = new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber());
+                f.Emploitemp = new EmploisTempDAO().FindById(read.GetInt32(0));
+                f.Id = read.GetInt32(1);
+                f.Jour = read.GetString(2);
+                f.Heuredebut = read.GetString(3);
+                f.Heurefin = read.GetString(4);
+                f.Formation = new PackageFormations.FormationDAO().FindById(read.GetInt32(5));
+                lstsance.Add(f);
+            }
+            return lstsance;
+
+        }
        
     
     }
