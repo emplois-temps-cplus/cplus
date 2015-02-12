@@ -36,6 +36,7 @@ namespace CompetencePlus.PackageEmploisTemps
             get { return anneeformation; }
             set { anneeformation = value; }
         }
+       
         public EmploisTemp(int id,DateTime datedebut,DateTime datefin,AnneeFormation anneformation)
         {
             this.id = id;

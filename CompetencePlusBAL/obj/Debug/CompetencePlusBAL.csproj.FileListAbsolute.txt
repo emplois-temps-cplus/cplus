@@ -61,3 +61,17 @@ C:\Users\Zbaaakh\Desktop\NotesCplus\cplus\CompetencePlusBAL\bin\Debug\Competence
 C:\Users\Zbaaakh\Desktop\NotesCplus\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.csprojResolveAssemblyReference.cache
 C:\Users\Zbaaakh\Desktop\NotesCplus\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.dll
 C:\Users\Zbaaakh\Desktop\NotesCplus\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.pdb
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusBAL.dll
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusBAL.pdb
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusDAL.dll
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusDAL.pdb
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.csprojResolveAssemblyReference.cache
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.dll
+E:\tachesgithubemploitemps\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.pdb
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusBAL.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusBAL.pdb
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusDAL.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\bin\Debug\CompetencePlusDAL.pdb
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.csprojResolveAssemblyReference.cache
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.dll
+C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusBAL\obj\Debug\CompetencePlusBAL.pdb

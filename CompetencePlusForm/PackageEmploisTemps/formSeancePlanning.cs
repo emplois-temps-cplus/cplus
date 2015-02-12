@@ -23,15 +23,15 @@ namespace CompetencePlus.PackageEmploisTemps
             this.Dispose();
         }
 
-        int id=3;
+        
       
 
         private void btenregistrer_Click(object sender, EventArgs e)
         {
-            
+            // je pense maghtkhdemch !! see it !!hmm att nchof
             Seanceplanning s = new Seanceplanning();
-            s.Emploitemp = (EmploisTemp)new EmploisTempDAO().FindById(id);
-            s.Id = 1;
+            s.Emploitemp = (EmploisTemp)new EmploisTempDAO().FindById(new EmploisTempDAO().GetLastnumber()) ;
+        
             s.Heuredebut = userControltime1.Hm;
             s.Heurefin = userControltime2.Hm;
             if (Lundiradio.Checked)

@@ -47,9 +47,11 @@
             this.formationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seanceplanningBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btajouter = new System.Windows.Forms.Button();
             this.emploisTempBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btmodifier = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.anneeFormationBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -60,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btmodifier);
             this.groupBox1.Controls.Add(this.btajouteremploitemps);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -76,12 +79,13 @@
             // 
             // btajouteremploitemps
             // 
-            this.btajouteremploitemps.Location = new System.Drawing.Point(142, 115);
+            this.btajouteremploitemps.Location = new System.Drawing.Point(228, 115);
             this.btajouteremploitemps.Name = "btajouteremploitemps";
             this.btajouteremploitemps.Size = new System.Drawing.Size(86, 23);
             this.btajouteremploitemps.TabIndex = 3;
             this.btajouteremploitemps.Text = "Ajouter";
             this.btajouteremploitemps.UseVisualStyleBackColor = true;
+            this.btajouteremploitemps.Visible = false;
             this.btajouteremploitemps.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker2
@@ -161,7 +165,8 @@
             this.heurefinDataGridViewTextBoxColumn,
             this.formationDataGridViewTextBoxColumn,
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             this.dataGridView1.DataSource = this.seanceplanningBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
@@ -217,6 +222,13 @@
             this.Column2.Name = "Column2";
             this.Column2.Width = 50;
             // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Id";
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
             // seanceplanningBindingSource
             // 
             this.seanceplanningBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.Seanceplanning);
@@ -234,6 +246,16 @@
             // emploisTempBindingSource
             // 
             this.emploisTempBindingSource.DataSource = typeof(CompetencePlus.PackageEmploisTemps.EmploisTemp);
+            // 
+            // btmodifier
+            // 
+            this.btmodifier.Location = new System.Drawing.Point(142, 115);
+            this.btmodifier.Name = "btmodifier";
+            this.btmodifier.Size = new System.Drawing.Size(75, 23);
+            this.btmodifier.TabIndex = 8;
+            this.btmodifier.Text = "modifier";
+            this.btmodifier.UseVisualStyleBackColor = true;
+            this.btmodifier.Click += new System.EventHandler(this.button1_Click_3);
             // 
             // FormAjouterEmploitemps
             // 
@@ -272,6 +294,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btajouteremploitemps;
+        private System.Windows.Forms.BindingSource emploisTempBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Emploitemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn jourDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heuredebutDataGridViewTextBoxColumn;
@@ -279,6 +302,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column2;
-        private System.Windows.Forms.BindingSource emploisTempBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        public System.Windows.Forms.Button btmodifier;
     }
 }

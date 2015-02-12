@@ -15,44 +15,49 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             InitializeComponent();
         }
+          int id = 0;
+
+        
         public void update(Seanceplanning s)
         {
+            id = s.Id;
+            MessageBox.Show(id.ToString());
             string chaine2 = s.Heurefin;
             string chaine = s.Heuredebut;
             string[] remplir2 = chaine2.Split(':');
             string[] remplir = chaine.Split(':');
             formationBindingSource.DataSource = s.Formation;
             userControltime1.Hour = remplir[0].ToString();
-            userControltime1.Min = remplir[1].ToString() ;
+            userControltime1.Min = remplir[1].ToString();
             userControltime2.Hour = remplir2[0].ToString();
             userControltime2.Min = remplir2[1].ToString();
-            if (Lundiradio.Checked)
+            if (s.Jour != null && s.Jour == "Lundi")
             {
-                s.Jour = "Lundi";
+                Lundiradio.Checked = true;
             }
-            if (mardiradio.Checked)
+            if (s.Jour != null && s.Jour == "Mardi")
             {
-                s.Jour = "Mardi";
+                mardiradio.Checked = true;
             }
-            if (mercrediradio.Checked)
+            if (s.Jour != null && s.Jour == "Jeudi")
             {
-                s.Jour = "Mercredi";
+                jeudiradio.Checked = true;
             }
-            if (jeudiradio.Checked == true)
+            if (s.Jour != null && s.Jour == "Mercredi")
             {
-                s.Jour = "Jeudi";
+                mercrediradio.Checked = true;
             }
-            if (vendrediradio.Checked)
+            if (s.Jour != null && s.Jour == "Vendredi")
             {
-                s.Jour = "Vendredi";
+                vendrediradio.Checked = true;
             }
-            if (samediradio.Checked)
+            if (s.Jour != null && s.Jour == "Samedi")
             {
-                s.Jour = "Samedi";
+                samediradio.Checked = true;
             }
-            if (dimancheradio.Checked)
+            if (s.Jour != null && s.Jour == "Dimanche")
             {
-                s.Jour = "Dimanche";
+                dimancheradio.Checked = true;
             }
            
         
@@ -63,7 +68,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
 
             Seanceplanning s = new Seanceplanning();
-            s.Id = 1;
+            
             if (Lundiradio.Checked)
             {
                 s.Jour = "Lundi";
@@ -76,7 +81,7 @@ namespace CompetencePlus.PackageEmploisTemps
             {
                 s.Jour = "Mercredi";
             }
-            if (jeudiradio.Checked == true)
+            if (jeudiradio.Checked )
             {
                 s.Jour = "Jeudi";
             }
@@ -95,6 +100,8 @@ namespace CompetencePlus.PackageEmploisTemps
             s.Heuredebut = userControltime1.Hm;
             s.Heurefin = userControltime2.Hm;
             s.Formation = (PackageFormations.Formation)formationBindingSource.Current;
+            s.Id = 10; 
+
             new SeanceplanningDAO().Update(s);
             this.Dispose();
        
@@ -104,5 +111,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             this.Dispose();
         }
+
+      
     }
 }

@@ -49,7 +49,7 @@ namespace CompetencePlus.PackageAnneeFormations
       }
       public override string ToString()
       {
-          return id.ToString();
+          return titre;
       }
 
 
