@@ -83,29 +83,96 @@ namespace CompetencePlus.PackageEmploisTemps
            
 
         }
-        public List<EmploisTemp> FindByemploitemp(EmploisTemp g)
+        public static List<EmploisTemp> afficherdatedebut(DateTime datedebut)
         {
-            string Requete = "Select * from  ";
-            if ( g.Anneeformation != null || g.DateDebut != null || g.DateFin != null)
+            List<EmploisTemp> listeemploitemp = new List<EmploisTemp>();
+            string requete;
+            requete = "select * from EmploisTemps  where dateDebut='" + datedebut + "'";
+            OleDbDataReader read = MyConnection.ExecuteReader(requete);
+            while (read.Read())
+            {
+                EmploisTemp d = new EmploisTemp();
+                d.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
+                d.DateDebut = read.GetDateTime(1);
+                d.DateFin = read.GetDateTime(2);
+
+                listeemploitemp.Add(d);
+            }
+            MyConnection.Close();
+            return listeemploitemp;
+
+
+
+        }
+        public static List<EmploisTemp> rechercherdatefin(DateTime datefin)
+        {
+            List<EmploisTemp> listeemploitemp = new List<EmploisTemp>();
+            string requete;
+            requete = "select * from EmploisTemps  where dateFin='" + datefin+"'";
+            OleDbDataReader read = MyConnection.ExecuteReader(requete);
+            while (read.Read())
+            {
+                EmploisTemp d = new EmploisTemp();
+                d.Anneeformation = new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
+                d.DateDebut = read.GetDateTime(1);
+                d.DateFin = read.GetDateTime(2);
+
+                listeemploitemp.Add(d);
+            }
+            MyConnection.Close();
+            return listeemploitemp;
+
+
+
+        }
+        public static List<EmploisTemp> rechercheparanne (int id)
+        {
+            List<EmploisTemp> listeemploitemp = new List<EmploisTemp>();
+            string requete;
+            requete = "select * from EmploisTemps  where anneformation_id = " + id;
+            OleDbDataReader read = MyConnection.ExecuteReader(requete);
+            while (read.Read())
+            {
+                
+
+               
+                listeemploitemp.Add(new EmploisTemp(read.GetInt32(0),read.GetDateTime(1), read.GetDateTime(2),new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3))));
+            }
+            MyConnection.Close();
+            return listeemploitemp;
+
+
+
+        }
+
+
+
+        public List<EmploisTemp> FindByemploitemp(int id,string datedebut,string datefin)
+        {
+
+            string Requete = "Select * from EmploisTemps ";
+            if (id != null || datedebut != null || datefin!= null)
             {
                 Requete += " where ";
+
+
             }
             bool and = false;
-            if (g.Anneeformation != null)
+            if (id!= null)
             {
-                Requete += " anneeformation_id like '%" + g.Anneeformation.Id + "%'";
+                Requete += " anneeformation_id like '%" + id+ "%'";
                 and = true;
             }
-            if (g.DateDebut != null)
+            if (datedebut != null)
             {
                 if (and) Requete += " and ";
-                Requete += "dateDebut  like '%" + g.DateDebut+ "%'";
+                Requete += "dateDebut  like '%" + datedebut+ "%'";
                 and = true;
             }
-            if (g.DateFin!= null)
+            if (datefin!= null)
             {
                 if (and) Requete += " and ";
-                Requete += " DateFin like '%" + g.DateFin + "%'";
+                Requete += " DateFin like '%" + datefin + "%'";
                 and = true;
             }
             
@@ -114,15 +181,9 @@ namespace CompetencePlus.PackageEmploisTemps
             OleDbDataReader read = MyConnection.ExecuteReader(Requete);
             while (read.Read())
             {
-               EmploisTemp d = new EmploisTemp();
-                d.Anneeformation =new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3));
-                d.DateDebut = read.GetDateTime(1);
-                d.DateFin = read.GetDateTime(2);
-                
-                Listemploi.Add(d);
 
-
-             
+                Listemploi.Add(new EmploisTemp(read.GetInt32(0), (DateTime)read["dateDebut"], (DateTime)read["dateFin"], new PackageAnneeFormations.AnneformationDAO().findbyid(read.GetInt32(3))));
+           
             }
             MyConnection.Close();
             return Listemploi;

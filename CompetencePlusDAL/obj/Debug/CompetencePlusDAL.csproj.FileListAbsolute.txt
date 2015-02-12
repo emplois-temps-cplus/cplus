@@ -59,4 +59,3 @@ C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\Interop.ADOX.
 C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.csproj.ResolveComReference.cache
 C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.dll
 C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.pdb
-C:\Users\chabba\Documents\GitHub\cplus\CompetencePlusDAL\obj\Debug\CompetencePlusDAL.csprojResolveAssemblyReference.cache

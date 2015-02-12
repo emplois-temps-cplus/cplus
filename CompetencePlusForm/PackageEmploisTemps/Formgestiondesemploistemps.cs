@@ -15,7 +15,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             
             InitializeComponent();
-        
+            
         }
         
      
@@ -35,6 +35,28 @@ namespace CompetencePlus.PackageEmploisTemps
             emploisTempBindingSource.DataSource = null;
             emploisTempBindingSource.DataSource = new EmploisTempDAO().Select();
 
+            try
+            {
+
+                foreach (DataGridViewRow ss in dataGridView1.Rows)
+                {
+                    //MessageBox.Show(ss.Cells[0].Value.ToString());
+                    comboBox2.Items.Add(ss.Cells[0].Value.ToString());
+                    comboBox3.Items.Add(ss.Cells[1].Value.ToString());
+
+                }
+                //foreach (DataGridViewRow ss in dataGridView1.Rows)
+                //{
+                //    //MessageBox.Show(ss.Cells[0].Value.ToString());
+                //    comboBox3.Items.Add(ss.Cells[0].Value.ToString());
+                //    // comboBox3.Items.Add(ss.Cells[1].Value.ToString());
+
+                //}
+            }
+            catch
+            {
+
+            }
         }
 
    
@@ -43,6 +65,7 @@ namespace CompetencePlus.PackageEmploisTemps
         {
             FormAjouterEmploitemps f = new FormAjouterEmploitemps();
             f.ismodfi(0);
+            f.Ff = this;
             f.Show();
             
            
@@ -50,10 +73,16 @@ namespace CompetencePlus.PackageEmploisTemps
 
         private void Form_gestion_des_emplois_temps_Load(object sender, EventArgs e)
         {
+         
+
             anneeFormationBindingSource.DataSource = null;
 
             anneeFormationBindingSource.DataSource = new PackageAnneeFormations.AnneformationDAO().select();
             this.refresh();
+
+           
+          
+
         }
 
        
@@ -79,6 +108,7 @@ namespace CompetencePlus.PackageEmploisTemps
                   //int idemploit = int.Parse(dataGridView1.SelectedRows[0].Cells["id"].Value.ToString());
                   //MessageBox.Show(idemploit.ToString());
                     f.ismodfi(1);
+                    f.updateemploitemp(d);
                     f.idemploitemp(d.Id);
                     f.Show();
                    
@@ -105,35 +135,69 @@ namespace CompetencePlus.PackageEmploisTemps
         private void button2_Click(object sender, EventArgs e)
         {
             emploisTempBindingSource.MoveFirst();
+            EmploisTemp d = (EmploisTemp)emploisTempBindingSource.Current;
+            label4.Text = d.Anneeformation.ToString();
+            label5.Text = d.DateDebut.ToLongDateString();
+            label6.Text = d.DateFin.ToLongTimeString();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             emploisTempBindingSource.MovePrevious();
+            EmploisTemp d = (EmploisTemp)emploisTempBindingSource.Current;
+            label4.Text = d.Anneeformation.ToString();
+            label5.Text = d.DateDebut.ToLongDateString();
+            label6.Text = d.DateFin.ToLongTimeString();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             emploisTempBindingSource.MoveNext();
+            EmploisTemp d = (EmploisTemp)emploisTempBindingSource.Current;
+            label4.Text = d.Anneeformation.ToString();
+            label5.Text = d.DateDebut.ToLongDateString();
+            label6.Text = d.DateFin.ToLongTimeString();
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             emploisTempBindingSource.MoveLast();
+            EmploisTemp d = (EmploisTemp)emploisTempBindingSource.Current;
+            label4.Text = d.Anneeformation.ToString();
+            label5.Text = d.DateDebut.ToLongDateString();
+            label6.Text = d.DateFin.ToLongDateString();
+           
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
         {
+
             EmploisTemp d = new EmploisTemp();
+
             d.Anneeformation = (PackageAnneeFormations.AnneeFormation)anneeFormationBindingSource.Current;
-            d.DateDebut =(DateTime) comboBox2.SelectedItem;
-            d.DateFin = (DateTime)comboBox3.SelectedItem;
+            //d.DateDebut = (DateTime)comboBox2.SelectedItem;
+            //d.DateFin = (DateTime)comboBox3.SelectedItem;
+            MessageBox.Show(d.Anneeformation.Id.ToString());
+            //  emploisTempBindingSource.DataSource = EmploisTempDAO.rechercheparanne(d.Anneeformation.Id);
+               emploisTempBindingSource.DataSource = new EmploisTempDAO().FindByemploitemp(d.Anneeformation.Id,comboBox2.SelectedItem.ToString(),comboBox3.SelectedItem.ToString());
+              // MessageBox.Show(comboBox2.SelectedItem.ToString());
+              // MessageBox.Show(comboBox3.SelectedItem.ToString());
+            //d.DateFin = (DateTime)comboBox3.SelectedItem;
 
-            emploisTempBindingSource.DataSource = new EmploisTempDAO().FindByemploitemp(d);
-           
 
 
+        }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
         }

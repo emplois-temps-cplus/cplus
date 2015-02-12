@@ -16,7 +16,7 @@ namespace CompetencePlus.PackageEmploisTemps
         public FormAjouterEmploitemps()
         {
             InitializeComponent();
-            
+           
              
             MessageBox.Show(Idselectionner.ToString());
             btajouter.Enabled = false;
@@ -103,6 +103,14 @@ namespace CompetencePlus.PackageEmploisTemps
         public  void  idemploitemp(int id){
 
             iddd = id;
+        }
+
+        private Form_gestion_des_emplois_temps ff;
+
+        public Form_gestion_des_emplois_temps Ff
+        {
+            get { return ff; }
+            set { ff = value; }
         }
        
         private void FormAjouterEmploitemps_Load(object sender, EventArgs e)
@@ -199,6 +207,7 @@ namespace CompetencePlus.PackageEmploisTemps
             new EmploisTempDAO().Add(c);
            btajouter.Enabled = true;
            btajouteremploitemps.Enabled = false;
+           ff.refresh();
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -214,12 +223,13 @@ namespace CompetencePlus.PackageEmploisTemps
            
             EmploisTemp d = new EmploisTemp();
             d.Id = s.Emploitemp.Id;
-            updateemploitemp(d);
+           // updateemploitemp(d);
             MessageBox.Show(d.Id.ToString());
             d.Anneeformation = (AnneeFormation)comboBox1.SelectedItem;
             d.DateDebut = dateTimePicker1.Value;
             d.DateFin = dateTimePicker2.Value;
             new EmploisTempDAO().Update(d);
+            
             btajouter.Enabled = true;
 
         }
@@ -227,8 +237,8 @@ namespace CompetencePlus.PackageEmploisTemps
         public void updateemploitemp(EmploisTemp e)
         {
             idemploimodifer = e.Id;
-            dateTimePicker1.Value = e.DateDebut;
-            dateTimePicker2.Value = e.DateFin;
+            dateTimePicker1.Value = e.DateDebut.Date;
+            dateTimePicker2.Value = e.DateFin.Date;
             anneeFormationBindingSource.DataSource = e.Anneeformation;
 
         }
